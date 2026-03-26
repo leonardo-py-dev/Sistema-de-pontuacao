@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteio e Pontuação - Eco Game Show</title>
+    <!-- Google Fonts for Modern Styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Play&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/sorteio.css">
+</head>
+<body>
+    <!-- Background Elements for TV Studio Vibe -->
+    <div class="studio-light light-1"></div>
+    <div class="studio-light light-2"></div>
+    <div class="particles"></div>
+
+    <!-- Floating Leaves Background -->
+    <div class="leaves-container">
+        <div class="leaf leaf-1">🌿</div>
+        <div class="leaf leaf-2">🍃</div>
+        <div class="leaf leaf-3">🌿</div>
+        <div class="leaf leaf-4">🍃</div>
+        <div class="leaf leaf-5">🌿</div>
+        <div class="leaf leaf-6">🌿</div>
+    </div>
+
+    <main class="game-container">
+        
+        <!-- Header / Stage Name -->
+        <header class="game-header">
+            <div class="logo-circle">
+                <span class="leaf-icon">🌿</span>
+            </div>
+            <h1>ECO <span class="highlight">SHOW</span></h1>
+            <p class="subtitle">O Jogo da Sustentabilidade</p>
+        </header>
+
+        <!-- Hint Raffle Section (Moved Up for Flow) -->
+        <section class="raffle-board glass-panel">
+            <h2>SORTEIO DE DICA</h2>
+            
+            <div class="roleta-container">
+                <div id="dica-display" class="dica-texto">
+                    CLIQUE PARA SORTEAR
+                </div>
+            </div>
+
+            <button id="btn-sortear" class="btn btn-primary action-btn large-btn golden-glow">
+                🎰 GIRAR ROLETA
+            </button>
+        </section>
+
+        <!-- New Cards Section -->
+        <section class="cards-section glass-panel">
+            <div class="score-header">
+                <h2>CARTAS DO JOGO</h2>
+                <button id="btn-draw" class="btn btn-small outline-btn">
+                    🃏 SORTEAR CARTAS
+                </button>
+            </div>
+            
+            <div id="cards-container" class="cards-container">
+                <!-- Cards will be injected here via JS -->
+            </div>
+        </section>
+
+        <!-- Multi-player Scoring Section -->
+        <section class="score-section glass-panel">
+            <div class="score-header">
+                <h2>PONTUAÇÃO DOS JOGADORES</h2>
+                <button id="btn-add-player" class="btn btn-small outline-btn">
+                    👤 + ADICIONAR JOGADOR
+                </button>
+            </div>
+            
+            <div id="players-container" class="players-grid">
+                <!-- Players will be injected here by JS -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Template for Player Card (Hidden from view) -->
+    <template id="player-template">
+        <div class="player-card">
+            <div class="player-info">
+                <input type="text" class="player-name" value="Jogador" maxlength="15" spellcheck="false">
+            </div>
+            <div class="score-display small-display">
+                <span class="score-value">0</span>
+                <span class="currency"> Pts</span>
+            </div>
+            
+            <div class="score-controls multi-btn-grid">
+                <button class="btn btn-success action-btn point-btn" data-points="5">+5</button>
+                <button class="btn btn-success action-btn point-btn" data-points="10">+10</button>
+                <button class="btn btn-success action-btn point-btn" data-points="15">+15</button>
+                <button class="btn btn-danger action-btn point-btn sub-btn" data-points="-5">-5</button>
+            </div>
+            <!-- Botão de remover embutido (só aparece a partir do jogador 2 nas lógicas) -->
+            <button class="btn-remove-player" title="Remover Jogador">✖</button>
+        </div>
+    </template>
+
+    <!-- Interactive Elements Scripts -->
+    <script src="JS/sorteio.js"></script>
+</body>
+</html>
